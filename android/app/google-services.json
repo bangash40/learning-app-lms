@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "638622663810",
+    "project_id": "learning-app-lms",
+    "storage_bucket": "learning-app-lms.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638622663810:android:51c3cde462d4b367fa209b",
+        "android_client_info": {
+          "package_name": "com.example.learning_app_lms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638622663810-pghlgq4vcig9j8gl6movutvh96euh1im.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARabEYGzXCqMfEsqB1BzwjBlkX3K8-Usw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638622663810-pghlgq4vcig9j8gl6movutvh96euh1im.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

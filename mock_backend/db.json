@@ -1,0 +1,103 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Flutter for Beginners",
+      "description": "Learn to build cross-platform mobile apps from scratch using Flutter and Dart.",
+      "instructor": "Sarah Ahmed",
+      "category": "Mobile Development",
+      "level": "Beginner",
+      "thumbnailUrl": "https://picsum.photos/seed/flutter-course/400/225",
+      "durationMinutes": 45
+    },
+    {
+      "id": "2",
+      "title": "Python Programming Fundamentals",
+      "description": "Master the basics of Python: syntax, data types, control flow, and functions.",
+      "instructor": "Omar Khalid",
+      "category": "Programming",
+      "level": "Beginner",
+      "thumbnailUrl": "https://picsum.photos/seed/python-course/400/225",
+      "durationMinutes": 38
+    },
+    {
+      "id": "3",
+      "title": "UI/UX Design Principles",
+      "description": "Understand the fundamentals of user-centered design, wireframing, and prototyping.",
+      "instructor": "Ayesha Malik",
+      "category": "Design",
+      "level": "Intermediate",
+      "thumbnailUrl": "https://picsum.photos/seed/uiux-course/400/225",
+      "durationMinutes": 30
+    },
+    {
+      "id": "4",
+      "title": "Data Structures & Algorithms",
+      "description": "Build a strong foundation in arrays, linked lists, trees, and sorting algorithms.",
+      "instructor": "Bilal Hussain",
+      "category": "Computer Science",
+      "level": "Advanced",
+      "thumbnailUrl": "https://picsum.photos/seed/dsa-course/400/225",
+      "durationMinutes": 52
+    }
+  ],
+  "lectures": [
+    { "id": "1", "courseId": "1", "title": "Introduction to Flutter & Dart", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", "durationMinutes": 15, "order": 1 },
+    { "id": "2", "courseId": "1", "title": "Widgets & Layouts", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", "durationMinutes": 18, "order": 2 },
+    { "id": "3", "courseId": "1", "title": "State Management Basics", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", "durationMinutes": 12, "order": 3 },
+
+    { "id": "4", "courseId": "2", "title": "Python Syntax & Variables", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", "durationMinutes": 14, "order": 1 },
+    { "id": "5", "courseId": "2", "title": "Control Flow & Loops", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", "durationMinutes": 13, "order": 2 },
+    { "id": "6", "courseId": "2", "title": "Functions & Modules", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", "durationMinutes": 11, "order": 3 },
+
+    { "id": "7", "courseId": "3", "title": "Design Thinking Basics", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4", "durationMinutes": 10, "order": 1 },
+    { "id": "8", "courseId": "3", "title": "Wireframing & Prototyping", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4", "durationMinutes": 12, "order": 2 },
+    { "id": "9", "courseId": "3", "title": "Usability Testing", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4", "durationMinutes": 8, "order": 3 },
+
+    { "id": "10", "courseId": "4", "title": "Arrays & Linked Lists", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4", "durationMinutes": 20, "order": 1 },
+    { "id": "11", "courseId": "4", "title": "Trees & Graphs", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4", "durationMinutes": 17, "order": 2 },
+    { "id": "12", "courseId": "4", "title": "Sorting Algorithms", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4", "durationMinutes": 15, "order": 3 }
+  ],
+  "quizzes": [
+    {
+      "id": "1",
+      "courseId": "1",
+      "title": "Flutter Basics Quiz",
+      "questions": [
+        { "id": "q1", "question": "Which language is used to write Flutter apps?", "options": ["Java", "Dart", "Swift", "Kotlin"], "correctOptionIndex": 1 },
+        { "id": "q2", "question": "What is the basic building block of a Flutter UI?", "options": ["Widget", "Component", "Fragment", "Activity"], "correctOptionIndex": 0 },
+        { "id": "q3", "question": "Which command creates a new Flutter project?", "options": ["flutter new", "flutter init", "flutter create", "flutter start"], "correctOptionIndex": 2 }
+      ]
+    },
+    {
+      "id": "2",
+      "courseId": "2",
+      "title": "Python Fundamentals Quiz",
+      "questions": [
+        { "id": "q1", "question": "Which symbol starts a comment in Python?", "options": ["//", "#", "--", "/*"], "correctOptionIndex": 1 },
+        { "id": "q2", "question": "Which keyword defines a function in Python?", "options": ["func", "def", "function", "lambda"], "correctOptionIndex": 1 },
+        { "id": "q3", "question": "What data type is [1, 2, 3] in Python?", "options": ["Tuple", "Set", "List", "Dictionary"], "correctOptionIndex": 2 }
+      ]
+    },
+    {
+      "id": "3",
+      "courseId": "3",
+      "title": "UI/UX Principles Quiz",
+      "questions": [
+        { "id": "q1", "question": "What is a low-fidelity representation of a design called?", "options": ["Mockup", "Wireframe", "Prototype", "Storyboard"], "correctOptionIndex": 1 },
+        { "id": "q2", "question": "What does UX stand for?", "options": ["User Experience", "User Extension", "Universal Xperience", "Unified Experience"], "correctOptionIndex": 0 },
+        { "id": "q3", "question": "Testing a design with real users is called?", "options": ["A/B Testing", "Usability Testing", "Unit Testing", "Load Testing"], "correctOptionIndex": 1 }
+      ]
+    },
+    {
+      "id": "4",
+      "courseId": "4",
+      "title": "Data Structures Quiz",
+      "questions": [
+        { "id": "q1", "question": "Which data structure uses LIFO order?", "options": ["Queue", "Stack", "Array", "Tree"], "correctOptionIndex": 1 },
+        { "id": "q2", "question": "What is the time complexity of binary search?", "options": ["O(n)", "O(n^2)", "O(log n)", "O(1)"], "correctOptionIndex": 2 },
+        { "id": "q3", "question": "Which traversal visits the root node first?", "options": ["In-order", "Post-order", "Pre-order", "Level-order"], "correctOptionIndex": 2 }
+      ]
+    }
+  ]
+}

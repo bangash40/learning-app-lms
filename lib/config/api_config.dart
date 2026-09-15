@@ -14,7 +14,7 @@ class ApiConfig {
   /// - iOS simulator + local json-server:      http://localhost:3000
   /// - Physical device + local json-server:    http://`your-computer-LAN-IP`:3000
   /// - mockapi.io:                             https://`your-project-id`.mockapi.io/api/v1
-  static const String baseUrl = 'http://10.0.2.2:3000';
+  static const String baseUrl = 'http://192.168.0.125:3000';
 
   static const String coursesPath = '/courses';
   static const String lecturesPath = '/lectures';

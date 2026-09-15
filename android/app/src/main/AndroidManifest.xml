@@ -1,8 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- usesCleartextTraffic allows plain http:// requests, needed while ApiConfig points at
+         the local mock backend (json-server over http). Remove once the real LMS (https) is
+         wired up in lib/config/api_config.dart. -->
     <application
         android:label="learning_app_lms"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

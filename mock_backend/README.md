@@ -9,11 +9,16 @@ URL differs from a real LMS (see `lib/config/api_config.dart`).
 1. Install Node.js if you don't already have it.
 2. From this `mock_backend/` folder, run:
    ```bash
-   npx json-server db.json --port 3000
+   npx json-server@0.17.4 db.json --port 3000
    ```
+   The version pin matters: `npx json-server` with no version installs the v1 rewrite, which
+   silently drops support for `?field=value` query filtering — every filtered request (e.g.
+   `GET /lectures?courseId=1`, which `LmsApiService` relies on) returns an empty array instead
+   of an error, so the app loads courses but every course looks like it has no lectures/quiz.
+   `0.17.4` is the last classic release and supports that filtering correctly.
+
    This starts a REST API at `http://localhost:3000` with `/courses`, `/lectures`, and
-   `/quizzes` endpoints, and supports query filtering out of the box
-   (e.g. `GET /lectures?courseId=1`).
+   `/quizzes` endpoints.
 3. Point the app at it in `lib/config/api_config.dart`:
    - Android emulator: `http://10.0.2.2:3000`
    - iOS simulator: `http://localhost:3000`

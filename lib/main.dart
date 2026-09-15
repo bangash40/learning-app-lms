@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'config/firebase_options.dart';
 import 'screens/auth_gate.dart';
 import 'services/auth_service.dart';
+import 'services/lms_api_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,7 @@ class LmsApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: AuthGate(authService: AuthService()),
+      home: AuthGate(authService: AuthService(), apiService: LmsApiService()),
     );
   }
 }

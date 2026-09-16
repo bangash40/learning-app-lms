@@ -6,9 +6,10 @@ import '../services/api_exception.dart';
 import '../services/lms_api_service.dart';
 import '../widgets/error_view.dart';
 import '../widgets/lecture_tile.dart';
+import 'video_player_screen.dart';
 
 /// Shows a single course's details plus its list of lectures.
-/// Tapping a lecture doesn't play anything yet — that's wired up in Step 5.
+/// Tapping a lecture opens [VideoPlayerScreen] to play it.
 class CourseDetailScreen extends StatefulWidget {
   const CourseDetailScreen({
     super.key,
@@ -123,7 +124,17 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
               }
               return Column(
                 children: lectures
-                    .map((lecture) => LectureTile(lecture: lecture))
+                    .map(
+                      (lecture) => LectureTile(
+                        lecture: lecture,
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                VideoPlayerScreen(lecture: lecture),
+                          ),
+                        ),
+                      ),
+                    )
                     .toList(),
               );
             },

@@ -42,21 +42,21 @@
     }
   ],
   "lectures": [
-    { "id": "1", "courseId": "1", "title": "Introduction to Flutter & Dart", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4", "durationMinutes": 15, "order": 1 },
-    { "id": "2", "courseId": "1", "title": "Widgets & Layouts", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4", "durationMinutes": 18, "order": 2 },
-    { "id": "3", "courseId": "1", "title": "State Management Basics", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4", "durationMinutes": 12, "order": 3 },
+    { "id": "1", "courseId": "1", "title": "Introduction to Flutter & Dart", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 15, "order": 1 },
+    { "id": "2", "courseId": "1", "title": "Widgets & Layouts", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 18, "order": 2 },
+    { "id": "3", "courseId": "1", "title": "State Management Basics", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 12, "order": 3 },
 
-    { "id": "4", "courseId": "2", "title": "Python Syntax & Variables", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4", "durationMinutes": 14, "order": 1 },
-    { "id": "5", "courseId": "2", "title": "Control Flow & Loops", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4", "durationMinutes": 13, "order": 2 },
-    { "id": "6", "courseId": "2", "title": "Functions & Modules", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4", "durationMinutes": 11, "order": 3 },
+    { "id": "4", "courseId": "2", "title": "Python Syntax & Variables", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 14, "order": 1 },
+    { "id": "5", "courseId": "2", "title": "Control Flow & Loops", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 13, "order": 2 },
+    { "id": "6", "courseId": "2", "title": "Functions & Modules", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 11, "order": 3 },
 
-    { "id": "7", "courseId": "3", "title": "Design Thinking Basics", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4", "durationMinutes": 10, "order": 1 },
-    { "id": "8", "courseId": "3", "title": "Wireframing & Prototyping", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4", "durationMinutes": 12, "order": 2 },
-    { "id": "9", "courseId": "3", "title": "Usability Testing", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4", "durationMinutes": 8, "order": 3 },
+    { "id": "7", "courseId": "3", "title": "Design Thinking Basics", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 10, "order": 1 },
+    { "id": "8", "courseId": "3", "title": "Wireframing & Prototyping", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 12, "order": 2 },
+    { "id": "9", "courseId": "3", "title": "Usability Testing", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 8, "order": 3 },
 
-    { "id": "10", "courseId": "4", "title": "Arrays & Linked Lists", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4", "durationMinutes": 20, "order": 1 },
-    { "id": "11", "courseId": "4", "title": "Trees & Graphs", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4", "durationMinutes": 17, "order": 2 },
-    { "id": "12", "courseId": "4", "title": "Sorting Algorithms", "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4", "durationMinutes": 15, "order": 3 }
+    { "id": "10", "courseId": "4", "title": "Arrays & Linked Lists", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 20, "order": 1 },
+    { "id": "11", "courseId": "4", "title": "Trees & Graphs", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4", "durationMinutes": 17, "order": 2 },
+    { "id": "12", "courseId": "4", "title": "Sorting Algorithms", "videoUrl": "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4", "durationMinutes": 15, "order": 3 }
   ],
   "quizzes": [
     {

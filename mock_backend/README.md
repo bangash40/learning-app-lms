@@ -57,9 +57,16 @@ URL differs from a real LMS (see `lib/config/api_config.dart`).
 | id | string | |
 | courseId | string | foreign key into `courses` |
 | title | string | |
-| videoUrl | string (URL) | free public sample MP4s (Big Buck Bunny, etc.) |
+| videoUrl | string (URL) | free public sample MP4s — see note below |
 | durationMinutes | number | |
 | order | number | position within the course, 1-based |
+
+> **Note on video URLs:** `db.json` uses `https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4`
+> and `.../butterfly.mp4` — the Flutter team's own hosted sample clips, used here specifically
+> because they're small, CORS-enabled, and confirmed reachable. The commonly-copied
+> `commondatastorage.googleapis.com/gtv-videos-bucket/...` sample URLs (Big Buck Bunny,
+> Sintel, etc.) that show up in older Flutter tutorials now return `403 Forbidden` — that
+> bucket's public access has since been revoked — so don't reuse those.
 
 **quizzes**
 | field | type | notes |

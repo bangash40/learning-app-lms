@@ -6,6 +6,7 @@ import '../services/api_exception.dart';
 import '../services/lms_api_service.dart';
 import '../widgets/error_view.dart';
 import '../widgets/lecture_tile.dart';
+import 'quiz_screen.dart';
 import 'video_player_screen.dart';
 
 /// Shows a single course's details plus its list of lectures.
@@ -139,7 +140,24 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
               );
             },
           ),
-          const SizedBox(height: 24),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 24, 16, 24),
+            child: SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                icon: const Icon(Icons.quiz_outlined),
+                label: const Text('Take Quiz'),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => QuizScreen(
+                      courseId: course.id,
+                      apiService: widget.apiService,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -1,5 +1,5 @@
 name: learning_app_lms
-description: "A new Flutter project."
+description: "A cross-platform LMS learning app: browse courses, watch video lectures, and take quizzes with real-time scoring."
 publish_to: 'none'
 version: 0.1.0+1
 

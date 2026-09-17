@@ -29,9 +29,11 @@ learning experience built for students and interns.
 
 ## 📖 About the Data Source
 
-This project is designed to connect to an LMS platform over REST for course access and quiz
-management.
-
+The official Internee.pk LMS API isn't available, so this app talks to a mock REST backend
+(json-server) instead — see [`mock_backend/README.md`](mock_backend/README.md) for setup and
+the exact JSON schema. Only the base URL in `lib/config/api_config.dart` differs from a real
+LMS; the REST service layer, models, and every screen work exactly the same either way, so
+swapping in the real Internee.pk API later needs no other code changes.
 
 ---
 
@@ -53,30 +55,38 @@ lib/
 ### Prerequisites
 
 - [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- [Node.js](https://nodejs.org) (to run the mock REST backend)
 - An IDE (VS Code or Android Studio)
-- A [Firebase](https://console.firebase.google.com) project
+- A [Firebase](https://console.firebase.google.com) project with **Authentication**
+  (Email/Password) and **Firestore Database** enabled
 - A device or emulator to run the app
 
 ### Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/bangash40/lms-learning-app.git
-cd lms-learning-app
+git clone https://github.com/bangash40/learning-app-lms.git
+cd learning-app-lms
 
 # 2. Install dependencies
 flutter pub get
 
-# 3. Add your Firebase config files
+# 3. Add your Firebase config
 #    - android/app/google-services.json
 #    - ios/Runner/GoogleService-Info.plist
+#    - Run `flutterfire configure` to generate lib/config/firebase_options.dart
+#      (or fill it in by hand — see the comments in that file)
 
-# 4. Run the app
+# 4. Publish firestore.rules to your Firebase project
+#    (Firestore Database > Rules tab, paste the contents of firestore.rules)
+
+# 5. Start the mock LMS backend (see mock_backend/README.md for details)
+cd mock_backend && npx json-server@0.17.4 db.json --port 3000 && cd ..
+
+# 6. Point the app at your backend in lib/config/api_config.dart (ApiConfig.baseUrl),
+#    then run the app
 flutter run
 ```
-
-> **Note:** Set your REST API base URL in `lib/config/` before running, so the app can fetch
-> courses, lectures, and quizzes.
 
 ---
 

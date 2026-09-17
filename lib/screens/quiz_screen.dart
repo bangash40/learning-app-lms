@@ -44,38 +44,41 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Quiz')),
-      body: FutureBuilder<Quiz?>(
-        future: _quizFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            final error = snapshot.error;
-            return ErrorView(
-              message: error is ApiException
-                  ? error.message
-                  : 'Failed to load quiz.',
-              onRetry: _retry,
-            );
-          }
-          final quiz = snapshot.data;
-          if (quiz == null || quiz.questions.isEmpty) {
-            return const Center(
-              child: Text('No quiz available for this course yet.'),
-            );
-          }
-          // Keyed on quiz.id so a retry with a different quiz starts fresh.
-          return _QuizAttempt(
-            key: ValueKey(quiz.id),
-            quiz: quiz,
-            courseId: widget.courseId,
-            progressService: widget.progressService,
-          );
-        },
-      ),
+    return FutureBuilder<Quiz?>(
+      future: _quizFuture,
+      builder: (context, snapshot) {
+        final quiz = snapshot.data;
+        return Scaffold(
+          appBar: AppBar(title: Text(quiz?.title ?? 'Quiz')),
+          body: _buildBody(snapshot),
+        );
+      },
+    );
+  }
+
+  Widget _buildBody(AsyncSnapshot<Quiz?> snapshot) {
+    if (snapshot.connectionState == ConnectionState.waiting) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    if (snapshot.hasError) {
+      final error = snapshot.error;
+      return ErrorView(
+        message: error is ApiException ? error.message : 'Failed to load quiz.',
+        onRetry: _retry,
+      );
+    }
+    final quiz = snapshot.data;
+    if (quiz == null || quiz.questions.isEmpty) {
+      return const Center(
+        child: Text('No quiz available for this course yet.'),
+      );
+    }
+    // Keyed on quiz.id so a retry with a different quiz starts fresh.
+    return _QuizAttempt(
+      key: ValueKey(quiz.id),
+      quiz: quiz,
+      courseId: widget.courseId,
+      progressService: widget.progressService,
     );
   }
 }

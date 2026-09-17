@@ -29,6 +29,7 @@ class LearningAppLms extends StatelessWidget {
       uidProvider: () => authService.currentUser!.uid,
     );
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Learning App LMS',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),

@@ -35,6 +35,32 @@ the exact JSON schema. Only the base URL in `lib/config/api_config.dart` differs
 LMS; the REST service layer, models, and every screen work exactly the same either way, so
 swapping in the real Internee.pk API later needs no other code changes.
 
+### Running this on a different device or network
+
+Every REST call in this app is funneled through one file:
+[`lib/config/api_config.dart`](lib/config/api_config.dart). No screen, widget, or service ever
+hardcodes a URL — they all call `ApiConfig`. That means moving this app to a different
+device, network, or backend entirely is a **one-line change**, in one file:
+
+```dart
+// lib/config/api_config.dart
+static const String baseUrl = 'http://192.168.0.125:3000'; // <- change only this
+```
+
+What to put there depends on where the backend runs relative to the device running the app:
+
+| Running the app on...                          | Set `baseUrl` to |
+|---|---|
+| Android emulator, backend on the same computer | `http://10.0.2.2:3000` |
+| iOS simulator, backend on the same computer     | `http://localhost:3000` |
+| A physical phone, backend on a computer on the same Wi-Fi | `http://<that computer's LAN IP>:3000` (find it with `ipconfig` on Windows / `ifconfig` on Mac/Linux) |
+| Any device, backend hosted online (mockapi.io, a real server, or the real Internee.pk LMS) | that backend's actual URL, e.g. `https://api.example.com` |
+
+After changing it, do a full restart (`flutter run`, not hot reload) — `main()` reads this
+value once at startup. Nothing else in the codebase needs to change; see
+`docs/flutter_dart_api_rest_explained.md` for a full walkthrough of how a request flows from
+a screen, through `ApiConfig` and `LmsApiService`, to the backend and back.
+
 ---
 
 ## 📂 Project Structure

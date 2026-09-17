@@ -1,11 +1,11 @@
 {
-    "name": "learning_app_lms",
-    "short_name": "learning_app_lms",
+    "name": "Learning App LMS",
+    "short_name": "Learning App LMS",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A cross-platform LMS learning app: browse courses, watch video lectures, and take quizzes with real-time scoring.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

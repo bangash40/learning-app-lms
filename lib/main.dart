@@ -10,14 +10,14 @@ import 'services/progress_service.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const LmsApp());
+  runApp(const LearningAppLms());
 }
 
-/// Root widget of the LMS Learning App.
+/// Root widget of the Learning App LMS.
 /// Screens, services, models, config, and widgets each live in their own
 /// folder under lib/ — see README.md for the project structure.
-class LmsApp extends StatelessWidget {
-  const LmsApp({super.key});
+class LearningAppLms extends StatelessWidget {
+  const LearningAppLms({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class LmsApp extends StatelessWidget {
       uidProvider: () => authService.currentUser!.uid,
     );
     return MaterialApp(
-      title: 'LMS Learning App',
+      title: 'Learning App LMS',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,

@@ -1,4 +1,4 @@
-# 📚 LMS Learning App
+# 📚 Learning App LMS
 
 A cross-platform mobile application that gives users easy access to LMS courses and learning
 resources. Browse courses, watch video lectures through an integrated player, and attempt

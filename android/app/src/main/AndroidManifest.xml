@@ -6,7 +6,7 @@
          the local mock backend (json-server over http). Remove once the real LMS (https) is
          wired up in lib/config/api_config.dart. -->
     <application
-        android:label="LMS Learning App"
+        android:label="Learning App LMS"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">

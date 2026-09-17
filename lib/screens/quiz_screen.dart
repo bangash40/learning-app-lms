@@ -83,6 +83,7 @@ class _QuizAttempt extends StatefulWidget {
 class _QuizAttemptState extends State<_QuizAttempt> {
   late List<int?> _selectedOptions;
   int _currentIndex = 0;
+  bool _isFinished = false;
 
   @override
   void initState() {
@@ -97,6 +98,7 @@ class _QuizAttemptState extends State<_QuizAttempt> {
         null,
       );
       _currentIndex = 0;
+      _isFinished = false;
     });
   }
 
@@ -120,7 +122,11 @@ class _QuizAttemptState extends State<_QuizAttempt> {
   }
 
   void _goNext() {
-    setState(() => _currentIndex++);
+    if (_currentIndex == widget.quiz.questions.length - 1) {
+      setState(() => _isFinished = true);
+    } else {
+      setState(() => _currentIndex++);
+    }
   }
 
   QuizOptionState _optionStateFor(
@@ -140,7 +146,7 @@ class _QuizAttemptState extends State<_QuizAttempt> {
   Widget build(BuildContext context) {
     final questions = widget.quiz.questions;
 
-    if (_answeredCount == questions.length) {
+    if (_isFinished) {
       return _QuizResults(
         score: _score,
         total: questions.length,

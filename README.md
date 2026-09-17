@@ -90,7 +90,7 @@ This app is built in clear, self-contained steps (one step ≈ one commit):
 - [x] **Step 4** — Course browsing UI (listings + course detail)
 - [x] **Step 5** — Integrated video player
 - [x] **Step 6** — Quizzes with real-time scoring
-- [ ] **Step 7** — Progress tracking (Firebase-backed)
+- [x] **Step 7** — Progress tracking (Firebase-backed)
 - [ ] **Step 8** — Final integration & polish
 
 ---

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../services/auth_service.dart';
 import '../services/lms_api_service.dart';
+import '../services/progress_service.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
 
@@ -14,10 +15,12 @@ class AuthGate extends StatelessWidget {
     super.key,
     required this.authService,
     required this.apiService,
+    required this.progressService,
   });
 
   final AuthService authService;
   final LmsApiService apiService;
+  final ProgressService progressService;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,11 @@ class AuthGate extends StatelessWidget {
           );
         }
         if (snapshot.hasData) {
-          return HomeScreen(authService: authService, apiService: apiService);
+          return HomeScreen(
+            authService: authService,
+            apiService: apiService,
+            progressService: progressService,
+          );
         }
         return LoginScreen(authService: authService);
       },

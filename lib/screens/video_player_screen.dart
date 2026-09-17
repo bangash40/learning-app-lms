@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import '../models/lecture.dart';
+import '../services/progress_service.dart';
 
-/// Full-screen playback for a single lecture's video.
+/// Full-screen playback for a single lecture's video. Marks the lecture as
+/// complete in [ProgressService] once playback reaches the end.
 class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({super.key, required this.lecture});
+  const VideoPlayerScreen({
+    super.key,
+    required this.lecture,
+    required this.progressService,
+  });
 
   final Lecture lecture;
+  final ProgressService progressService;
 
   @override
   State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
@@ -18,6 +25,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   late final VideoPlayerController _videoController;
   ChewieController? _chewieController;
   String? _errorMessage;
+  bool _hasMarkedComplete = false;
 
   @override
   void initState() {
@@ -25,6 +33,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     _videoController = VideoPlayerController.networkUrl(
       Uri.parse(widget.lecture.videoUrl),
     );
+    _videoController.addListener(_onVideoProgress);
     _initialize();
   }
 
@@ -48,8 +57,22 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
     }
   }
 
+  void _onVideoProgress() {
+    if (_hasMarkedComplete) return;
+    final value = _videoController.value;
+    if (!value.isInitialized || value.duration == Duration.zero) return;
+    if (value.position >= value.duration) {
+      _hasMarkedComplete = true;
+      widget.progressService.markLectureComplete(
+        widget.lecture.courseId,
+        widget.lecture.id,
+      );
+    }
+  }
+
   @override
   void dispose() {
+    _videoController.removeListener(_onVideoProgress);
     _chewieController?.dispose();
     _videoController.dispose();
     super.dispose();

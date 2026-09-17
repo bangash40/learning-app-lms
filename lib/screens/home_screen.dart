@@ -4,6 +4,7 @@ import '../models/course.dart';
 import '../services/api_exception.dart';
 import '../services/auth_service.dart';
 import '../services/lms_api_service.dart';
+import '../services/progress_service.dart';
 import '../widgets/course_card.dart';
 import '../widgets/error_view.dart';
 import 'course_detail_screen.dart';
@@ -15,10 +16,12 @@ class HomeScreen extends StatefulWidget {
     super.key,
     required this.authService,
     required this.apiService,
+    required this.progressService,
   });
 
   final AuthService authService;
   final LmsApiService apiService;
+  final ProgressService progressService;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -88,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     builder: (_) => CourseDetailScreen(
                       course: course,
                       apiService: widget.apiService,
+                      progressService: widget.progressService,
                     ),
                   ),
                 ),

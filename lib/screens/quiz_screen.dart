@@ -3,21 +3,25 @@ import 'package:flutter/material.dart';
 import '../models/quiz.dart';
 import '../services/api_exception.dart';
 import '../services/lms_api_service.dart';
+import '../services/progress_service.dart';
 import '../widgets/error_view.dart';
 import '../widgets/quiz_option_tile.dart';
 
 /// Lets the user attempt a course's quiz one question at a time. The score
 /// is shown live as each answer is locked in, and a summary appears once
-/// every question has been answered.
+/// every question has been answered. The result is saved to
+/// [ProgressService] as soon as the quiz is finished.
 class QuizScreen extends StatefulWidget {
   const QuizScreen({
     super.key,
     required this.courseId,
     required this.apiService,
+    required this.progressService,
   });
 
   final String courseId;
   final LmsApiService apiService;
+  final ProgressService progressService;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -64,7 +68,12 @@ class _QuizScreenState extends State<QuizScreen> {
             );
           }
           // Keyed on quiz.id so a retry with a different quiz starts fresh.
-          return _QuizAttempt(key: ValueKey(quiz.id), quiz: quiz);
+          return _QuizAttempt(
+            key: ValueKey(quiz.id),
+            quiz: quiz,
+            courseId: widget.courseId,
+            progressService: widget.progressService,
+          );
         },
       ),
     );
@@ -72,9 +81,16 @@ class _QuizScreenState extends State<QuizScreen> {
 }
 
 class _QuizAttempt extends StatefulWidget {
-  const _QuizAttempt({super.key, required this.quiz});
+  const _QuizAttempt({
+    super.key,
+    required this.quiz,
+    required this.courseId,
+    required this.progressService,
+  });
 
   final Quiz quiz;
+  final String courseId;
+  final ProgressService progressService;
 
   @override
   State<_QuizAttempt> createState() => _QuizAttemptState();
@@ -124,6 +140,11 @@ class _QuizAttemptState extends State<_QuizAttempt> {
   void _goNext() {
     if (_currentIndex == widget.quiz.questions.length - 1) {
       setState(() => _isFinished = true);
+      widget.progressService.saveQuizResult(
+        courseId: widget.courseId,
+        score: _score,
+        total: widget.quiz.questions.length,
+      );
     } else {
       setState(() => _currentIndex++);
     }

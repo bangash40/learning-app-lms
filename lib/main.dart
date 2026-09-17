@@ -5,6 +5,7 @@ import 'config/firebase_options.dart';
 import 'screens/auth_gate.dart';
 import 'services/auth_service.dart';
 import 'services/lms_api_service.dart';
+import 'services/progress_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,13 +21,24 @@ class LmsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authService = AuthService();
+    final apiService = LmsApiService();
+    // Progress is stored per signed-in user, so this is only ever read once
+    // AuthGate has already confirmed a user is signed in.
+    final progressService = ProgressService(
+      uidProvider: () => authService.currentUser!.uid,
+    );
     return MaterialApp(
       title: 'LMS Learning App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: AuthGate(authService: AuthService(), apiService: LmsApiService()),
+      home: AuthGate(
+        authService: authService,
+        apiService: apiService,
+        progressService: progressService,
+      ),
     );
   }
 }
